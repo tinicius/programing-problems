@@ -23,7 +23,7 @@ int main() { _
     
         int moves  = 0;
 
-        while (v.size() != 1) {
+        while (moves != a - 1) {
             
             
 
