@@ -1,0 +1,8 @@
+*.hpp
+*.o
+*.txt
+*.out
+*.exe
+/.idea/
+/.vscode/
+/cmake-build-debug/
