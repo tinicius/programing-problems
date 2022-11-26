@@ -21,23 +21,28 @@ int main() {
   int n;
   cin >> n;
 
-  vector<string> names;
-  set<string> myset;
+  unordered_set<string> names;
+  vector<string> chatlist;
 
   while (n--) {
 
     string name;
     cin >> name;
 
-    names.push_back(name);
+    chatlist.push_back(name);
   }
 
-  for (int i = names.size() - 1; i >= 0; i--) {
+  // for (int i = chatlist.size() - 1; i >= 0; i--) {
+  //   names.insert(chatlist[i]);
+  // }
 
-    if (!myset.count(names[i]) > 0) {
-      myset.insert(names[i]);
-      cout << names[i] << " ";
-    }
+  for (auto name : chatlist) {
+    cout << name << " ";
+    names.insert(name);
+  }
+  cout << endl;
+  for (auto it : names) {
+    cout << it << " ";
   }
 
   return 0;
