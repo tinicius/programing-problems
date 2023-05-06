@@ -60,30 +60,49 @@ int mdc(int a, int b) {
 // Algoritmo do MMC
 int mmc(int a, int b) { return a * (b / mdc(a, b)); }
 
-vector<int> sieve_of_eratosthenes(int n) {
-    vector<bool> primes(n + 1, true);
-    primes[0] = primes[1] = false;
-    int p = 2;
-    while (p * p <= n) {
-        if (primes[p]) {
-            for (int i = p * p; i <= n; i += p) {
-                primes[i] = false;
-            }
-        }
-        p++;
+int multiply(int x, int res[], int res_size) {
+    int carry = 0;  // Initialize carry
+
+    // One by one multiply n with individual digits of res[]
+    for (int i = 0; i < res_size; i++) {
+        int prod = res[i] * x + carry;
+
+        // Store last digit of 'prod' in res[]
+        res[i] = prod % 10;
+
+        // Put rest in carry
+        carry = prod / 10;
     }
-    vector<int> prime_numbers;
-    for (int i = 2; i <= n; i++) {
-        if (primes[i]) {
-            prime_numbers.push_back(i);
-        }
+
+    // Put carry in res and increase result size
+    while (carry) {
+        res[res_size] = carry % 10;
+        carry = carry / 10;
+        res_size++;
     }
-    return prime_numbers;
+    return res_size;
 }
 
-int main() {
+void factorial(int n) {
+    int res[100];
 
-    // 
+    // Initialize result
+    res[0] = 1;
+    int res_size = 1;
+
+    // Apply simple factorial formula n! = 1 * 2 * 3
+    // * 4...*n
+    for (int x = 2; x <= n; x++) res_size = multiply(x, res, res_size);
+
+    for (int i = res_size - 1; i >= 0; i--) cout << res[i];
+}
+int main() {
+    long double a, b, c;
+
+    while (cin >> a >> b >> c) {
+        factorial(a + b + c);
+        cout << endl;
+    }
 
     return 0;
 }

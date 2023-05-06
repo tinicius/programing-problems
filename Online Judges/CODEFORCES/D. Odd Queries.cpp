@@ -60,30 +60,70 @@ int mdc(int a, int b) {
 // Algoritmo do MMC
 int mmc(int a, int b) { return a * (b / mdc(a, b)); }
 
-vector<int> sieve_of_eratosthenes(int n) {
-    vector<bool> primes(n + 1, true);
-    primes[0] = primes[1] = false;
-    int p = 2;
-    while (p * p <= n) {
-        if (primes[p]) {
-            for (int i = p * p; i <= n; i += p) {
-                primes[i] = false;
-            }
-        }
-        p++;
-    }
-    vector<int> prime_numbers;
-    for (int i = 2; i <= n; i++) {
-        if (primes[i]) {
-            prime_numbers.push_back(i);
-        }
-    }
-    return prime_numbers;
-}
-
 int main() {
+    int t;
+    cin >> t;
 
-    // 
+    // t = 5
+    // 0 1 2 3 4
+    // 0 1 2 3 4 5
+
+    while (t--) {
+        int n, q;
+        cin >> n >> q;
+
+        int total = 0;
+
+        vector<int> a(n);
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
+            total += a[i];
+        };
+
+        vector<int> sumP(n);
+        int sumA = 0;
+
+        vector<int> sumS(n);
+        int sumB = 0;
+
+        for (int i = 0; i < n; i++) {
+            sumA += a[i];
+            sumP[i] = sumA;
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            sumB += a[i];
+            sumS[i] = sumB;
+        }
+
+        // dbg(total);
+
+        while (q--) {
+            int l, r, k;
+            cin >> l >> r >> k;
+
+            int agora;
+
+            int t1, t2, t3;
+
+            if (l - 2 >= 0)
+                t1 = sumP[l - 2];
+            else
+                t1 = 0;
+
+            if (r == n)
+                t2 = 0;
+            else
+                t2 = sumS[r];
+
+            agora = t1 + (((r - l) + 1) * k) + t2;
+
+            if (agora % 2 != 0)
+                cout << "YES" << endl;
+            else
+                cout << "NO" << endl;
+        }
+    }
 
     return 0;
 }

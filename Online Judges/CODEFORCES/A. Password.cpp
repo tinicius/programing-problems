@@ -60,26 +60,29 @@ int mdc(int a, int b) {
 // Algoritmo do MMC
 int mmc(int a, int b) { return a * (b / mdc(a, b)); }
 
+int fat(int n) {
+    int ans = 1;
+
+    for (int i = n; i > 0; i--) ans *= i;
+    return ans;
+}
+
 int main() {
-    long long t;
+    int t;
+
     cin >> t;
 
     while (t--) {
-        long long n;
+        ll n;
         cin >> n;
 
-        vector<long long> nums(n);
+        vector<ll> naotem(n);
+        for (ll i = 0; i < n; i++) cin >> naotem[i];
 
-        for (long long i = 0; i < n; i++) cin >> nums[i];
+        ll cm = fat(10 - naotem.size()) / (2 * fat(10 - naotem.size() - 2));
 
-        sort(nums.begin(), nums.end());
-
-        // for (auto i : nums) cout << i << " ";
-        // cout << endl;
-
-        long long ans = max((nums[0] * nums[1]),
-                     (nums[nums.size() - 1] * nums[nums.size() - 2]));
-
-        cout << ans << endl;
+        cout << cm * 6 << endl;
     }
+
+    return 0;
 }

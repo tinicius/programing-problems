@@ -60,47 +60,72 @@ int mdc(int a, int b) {
 // Algoritmo do MMC
 int mmc(int a, int b) { return a * (b / mdc(a, b)); }
 
+int multiply(int x, int res[], int res_size) {
+    int carry = 0;  // Initialize carry
+
+    // One by one multiply n with individual digits of res[]
+    for (int i = 0; i < res_size; i++) {
+        int prod = res[i] * x + carry;
+
+        // Store last digit of 'prod' in res[]
+        res[i] = prod % 10;
+
+        // Put rest in carry
+        carry = prod / 10;
+    }
+
+    // Put carry in res and increase result size
+    while (carry) {
+        res[res_size] = carry % 10;
+        carry = carry / 10;
+        res_size++;
+    }
+    return res_size;
+}
+
+void factorial(int n) {
+    int res[100];
+
+    // Initialize result
+    res[0] = 1;
+    int res_size = 1;
+
+    // Apply simple factorial formula n! = 1 * 2 * 3
+    // * 4...*n
+    for (int x = 2; x <= n; x++) res_size = multiply(x, res, res_size);
+
+    for (int i = res_size - 1; i >= 0; i--) cout << res[i];
+}
 int main() {
-    // std::fixed(std::cout);
-    // cout << setprecision(2);
+    int n, q;
 
-    int n, k;
-    cin >> n >> k;
+    cin >> n >> q;
 
-    vector<int> nums(n);
+    vector<int> ar(n);
 
-    for (int i = 0; i < n; i++) cin >> nums[i];
+    for (int i = 0; i < n; i++) cin >> ar[i];
 
-    while (k--) {
-        int num;
-        cin >> num;
+    while (q--) {
+        int k;
+        cin >> k;
 
-        // BS 1
+        int l = -1;
+        int r = ar.size();
 
-        // int l = 0;
-        // int r = nums.size() - 1;
+        // ar[l] <=
+        // ar[r] > x
 
-        // while (l < r) {
-        //     int m = (l + r) / 2;
+        while (r > l + 1) {
+            int m = (r + l) / 2;
 
-        //     if (nums[m] >= num)
-        //         r = m;
-        //     else
-        //         l = m + 1;
-        // }
+            if (ar[m] > k) {
+                r = m;
+            } else {
+                l = m;
+            }
+        }
 
-
-        //BS with upper_bound
-        // auto g = upper_bound(nums.begin(), nums.end(), num);
-        // g--;
-
-
-        auto g = lower_bound(nums.begin(), nums.end(), num);
-
-        if (*g == num)
-            cout << "YES" << endl;
-        else
-            cout << "NO" << endl;
+        cout << l + 1 << endl;
     }
 
     return 0;

@@ -60,30 +60,19 @@ int mdc(int a, int b) {
 // Algoritmo do MMC
 int mmc(int a, int b) { return a * (b / mdc(a, b)); }
 
-vector<int> sieve_of_eratosthenes(int n) {
-    vector<bool> primes(n + 1, true);
-    primes[0] = primes[1] = false;
-    int p = 2;
-    while (p * p <= n) {
-        if (primes[p]) {
-            for (int i = p * p; i <= n; i += p) {
-                primes[i] = false;
-            }
-        }
-        p++;
-    }
-    vector<int> prime_numbers;
-    for (int i = 2; i <= n; i++) {
-        if (primes[i]) {
-            prime_numbers.push_back(i);
-        }
-    }
-    return prime_numbers;
-}
-
 int main() {
+    int t;
+    cin >> t;
 
-    // 
+    while (t--) {
+        int a, b, c;
+        cin >> a >> b >> c;
+
+        if (a + b == c)
+            cout << "+" << endl;
+        else
+            cout << "-" << endl;
+    }
 
     return 0;
 }
