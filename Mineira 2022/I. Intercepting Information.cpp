@@ -15,27 +15,16 @@ const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
 int main() {
-    ll t;
-    cin >> t;
+    int n;
 
-    while (t--) {
-        ll n;
-        cin >> n;
-
-        ll all = 0;
-
-        for (ll i = n - 1; i >= 1; i--) {
-            all += (i * 2);
+    while (cin >> n) {
+        if (n == 9) {
+            cout << "F" << endl;
+            return 0;
         }
-
-        ll fat = 1;
-
-        for (ll i = n; i >= 1; i--) {
-            fat = (fat * i) % 1000000007;
-        }
-
-        cout << (fat * all) % 1000000007 << endl;
     }
+
+    cout << "S" << endl;
 
     return 0;
 }

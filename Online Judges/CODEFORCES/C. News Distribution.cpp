@@ -14,10 +14,22 @@ typedef unsigned long long ll;
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
+const ll MAX = 1e5 + 42;
 
-int main() { _
+vector<bool> know(MAX);
+vector<vector<ll>> friends(MAX);
 
-    
+int main() {
+    ll n, m;
+    cin >> n >> m;
+
+    for (int i = 0; i < m; i++) {
+        vector<ll> group;
+        int f;
+        cin >> f;
+        f--;
+        group.push_back(f);
+    }
 
     return 0;
 }

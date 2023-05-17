@@ -14,10 +14,23 @@ typedef unsigned long long ll;
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
+const int MAX = 100 + 10;
 
-int main() { _
+vector<bool> visited(MAX);
+vector<vector<int>> edges(MAX);
 
-    
+int main() {
+    string s;
+    cin >> s;
+
+    string aux = s;
+
+    sort(aux.begin(), aux.end());
+
+    if (aux == s)
+        cout << 1 << endl;
+    else
+        cout << 0 << endl;
 
     return 0;
 }

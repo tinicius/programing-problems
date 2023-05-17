@@ -2,4 +2,3 @@
 
 Algumas resoluções de questões.
 
-- URI
