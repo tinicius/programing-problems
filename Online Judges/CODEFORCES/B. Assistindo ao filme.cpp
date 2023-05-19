@@ -17,5 +17,24 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
     _;
 
+    ll n, x;
+    cin >> n >> x;
+
+    ll atual = 1;
+
+    ll ans = 0;
+
+    while (n--) {
+        ll l, r;
+        cin >> l >> r;
+
+        ans += ((l - atual) % x);
+        ans += (r - l) + 1;
+
+        atual = r + 1;
+    }
+
+    cout << ans << endl;
+
     return 0;
 }

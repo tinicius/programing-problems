@@ -17,5 +17,21 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
     _;
 
+    ll l, r, x, y, k;
+    cin >> l >> r >> x >> y >> k;
+
+    for (ll i = l; i <= r; i++) {
+        if (i % k != 0) continue;
+
+        ll r = i / k;
+
+        if (r >= x && r <= y) {
+            cout << "YES" << endl;
+            return 0;
+        }
+    }
+
+    cout << "NO" << endl;
+
     return 0;
 }
