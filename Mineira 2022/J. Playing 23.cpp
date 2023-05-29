@@ -24,8 +24,25 @@ int main() {
     int john = 0;
     int mary = 0;
 
-    john = j1 + j2;
-    mary = m1 + m2;
+    if (j1 >= 10)
+        john += 10;
+    else
+        john += j1;
+
+    if (j2 >= 10)
+        john += 10;
+    else
+        john += j2;
+
+    if (m2 >= 10)
+        mary += 10;
+    else
+        mary += m2;
+
+    if (m1 >= 10)
+        mary += 10;
+    else
+        mary += m1;
 
     vector<int> cards(14);
 
