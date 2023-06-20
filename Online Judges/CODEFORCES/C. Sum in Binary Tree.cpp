@@ -17,5 +17,20 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
     _;
 
-    
+    long long t;
+    cin >> t;
+
+    while (t--) {
+        long long n;
+        cin >> n;
+
+        long long sum = n;
+
+        while (n > 1) {
+            n /= 2;
+            sum += n;
+        }
+
+        cout << sum << endl;
+    }
 }
