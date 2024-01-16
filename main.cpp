@@ -15,51 +15,30 @@ typedef long long ll;
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
-ll mdc(ll a, ll b) {
-    while (b != 0) {
-        ll r = a % b;
-        a = b;
-        b = r;
-    }
-    return a;
-}
-
-// Algoritmo do MMC
-ll mmc(ll a, ll b) { return a * (b / mdc(a, b)); }
-
-
 int main() {
     _;
 
-    ll t;
-    cin >> t;
+    int n;
+    cin >> n;
 
-    while (t--) {
-        ll n, x, y;
-        cin >> n >> x >> y;
+    vector<int> a(n);
 
-        ll comuns = n / mmc(x, y);
+    for (int i = 0; i < n; i++) cin >> a[i];
 
-        // dbg(comuns);
+    int big = a[0];
+    int low = a[0];
 
-        ll mulX = (n / x) - comuns;
-        ll mulY = (n / y) - comuns;
+    int ans = 0;
 
-        // dbg(mulX);
-        // dbg(mulY);
-
-        ll ans = 0;
-
-        ll a1 = (n - (mulX - 1));
-
-        ans = ((a1 + n) * mulX) / 2;
-
-        ll an = 1 + (mulY - 1);
-
-        ans -= ((1 + an) * mulY) / 2;
-
-        cout << ans << endl;
+    for (int i = 1; i < n; i++) {
+        if (a[i] > big) {
+            ans++;
+            big = a[i];
+        } else if (a[i] < low) {
+            ans++;
+            low = a[i];
+        }
     }
 
-    return 0;
+    cout << ans << endl;
 }
