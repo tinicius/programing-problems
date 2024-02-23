@@ -15,19 +15,18 @@ typedef long long ll;
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
-const ll MAX = (2 * 1e5) + 10;
+#define MAX 10
 
-vector<ll> d(MAX + 10);
-vector<vector<pair<ll, ll>>> g(MAX + 10,
-                               vector<pair<ll, ll>>()); // {vizinho, peso}
+ll d[MAX];
+vector<pair<int, int>> g[MAX]; // {vizinho, peso}
 
-ll n;
+int n;
 
-void dijkstra(ll v) {
-  for (ll i = 0; i < n; i++)
+void dijkstra(int v) {
+  for (int i = 0; i < n; i++)
     d[i] = LINF;
   d[v] = 0;
-  priority_queue<pair<ll, ll>> pq;
+  priority_queue<pair<ll, int>> pq;
   pq.emplace(0, v);
 
   while (pq.size()) {
@@ -44,24 +43,4 @@ void dijkstra(ll v) {
   }
 }
 
-int main() {
-  _;
-
-  // ll n;
-  cin >> n;
-
-  vector<ll> a(n - 1);
-  vector<ll> b(n - 1);
-  vector<ll> x(n - 1);
-
-  for (int i = 0; i < n - 1; i++) {
-    cin >> a[i] >> b[i] >> x[i];
-
-    g[i].push_back({i + 1, a[i]});
-    g[i].push_back({x[i] - 1, b[i]});
-  }
-
-  dijkstra(0);
-
-  cout << d[n - 1] << endl;
-}
+int main() { _; }
