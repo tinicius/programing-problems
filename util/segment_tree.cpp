@@ -7,7 +7,7 @@ const int INF = 0x3f3f3f3f;
 #define MAX (int)1e5
 
 int v[MAX];
-int seg[4 * MAX];
+int seg[4 * MAX];  // Não esquecer do quatro 4x !!!!!!!
 
 int build(int p, int l, int r) {
   if (l == r) return seg[p] = v[l];
@@ -18,7 +18,7 @@ int build(int p, int l, int r) {
 }
 
 int query(int a, int b, int p, int l, int r) {
-  if (b < l or r > a) return INF;
+  if (b < l or a > r) return INF;
   if (a <= l and r <= b) return seg[p];
   int m = (l + r) / 2;
 
