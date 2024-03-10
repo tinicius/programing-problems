@@ -17,5 +17,22 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
+  string s;
+  cin >> s;
+
+  string ans = "";
+
+  int c = 0;
+
+  for (int i = 0; i < s.size(); i++) {
+    if (s[i] == '|')
+      c++;
+    else {
+      if (c != 1) ans += s[i];
+    }
+  }
+
+  cout << ans << endl;
+
   return 0;
 }
