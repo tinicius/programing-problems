@@ -17,5 +17,23 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
+  ll n;
+  cin >> n;
+
+  vector<int> cup(4, 0);
+
+  cup[2] = 1;
+
+  while (n--) {
+    ll a, b;
+    cin >> a >> b;
+
+    swap(cup[a], cup[b]);
+  }
+
+  for (int i = 1; i <= 3; i++) {
+    if (cup[i] == 1) cout << i << endl;
+  }
+
   return 0;
 }

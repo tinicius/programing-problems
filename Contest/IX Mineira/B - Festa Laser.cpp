@@ -17,5 +17,10 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
+  bool v;
+  cin >> v;
+
+  cout << !v << endl;
+
   return 0;
 }

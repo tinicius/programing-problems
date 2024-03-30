@@ -17,5 +17,22 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
+  ll n;
+  cin >> n;
+
+  vector<ll> a(n);
+  for (auto& a_i : a) cin >> a_i;
+
+  vector<ll> suffix(n + 3);
+
+  ll ans = 0;
+
+  for (ll i = n - 1; i >= 0; i--) {
+    suffix[i] = max(suffix[i + 1], a[i] + suffix[i + 2]);
+    ans = max(ans, suffix[i]);
+  }
+
+  cout << ans << endl;
+
   return 0;
 }

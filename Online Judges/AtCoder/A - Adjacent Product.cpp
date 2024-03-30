@@ -17,5 +17,17 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
+  int n;
+  cin >> n;
+
+  vector<int> a(n);
+   for (auto& a_i : a) cin >> a_i;
+
+  for (int i = 1; i < n; i++) {
+    cout << a[i] * a[i - 1] << " ";
+  }
+
+  cout << endl;
+
   return 0;
 }

@@ -16,6 +16,12 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
 int main() {
   _;
+  long long n;
+  cin >> n;
 
-  return 0;
+  if (n >= 0) {
+    cout << (n + 9) / 10 << endl;
+  } else {
+    cout << (n / 10) << endl;
+  }
 }

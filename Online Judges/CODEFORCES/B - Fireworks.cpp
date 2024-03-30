@@ -17,5 +17,23 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
+  ll t;
+  cin >> t;
+
+  while (t--) {
+    ll a, b, m;
+    cin >> a >> b >> m;
+
+    ll mmc = a * b;
+    ll limit = mmc + m;
+
+    ll qnt = (limit - mmc) + 1;
+
+    ll fa = (qnt + a - 1) / a;
+    ll fb = (qnt + b - 1) / b;
+
+    cout << fa + fb << endl;
+  }
+
   return 0;
 }
