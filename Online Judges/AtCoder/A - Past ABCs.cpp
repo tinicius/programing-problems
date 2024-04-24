@@ -17,19 +17,24 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
-  ll n;
-  cin >> n;
+  string s;
+  cin >> s;
 
-  vector<ll> a(n - 1);
-  for (auto& a_i : a) cin >> a_i;
+  string aux;
+  aux.push_back(s[3]);
+  aux.push_back(s[4]);
+  aux.push_back(s[5]);
 
-  sort(a.begin(), a.end());
+  int a = atoi(aux.c_str());
 
-  for (ll i = 0; i < n; i++) {
-    if (i + 1 != a[i]) {
-      cout << i + 1 << endl;
-      break;
+  if (a >= 1 and a < 350) {
+    if (a == 316) {
+      cout << "No" << endl;
+    } else {
+      cout << "Yes" << endl;
     }
+  } else {
+    cout << "No" << endl;
   }
 
   return 0;

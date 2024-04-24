@@ -5,8 +5,8 @@ using namespace std;
 #define _                       \
   ios_base::sync_with_stdio(0); \
   cin.tie(0);
-#define endl '\n'
 
+#define endl '\n'
 #define dbg(x) cout << #x << " = " << x << endl
 
 typedef long long ll;
@@ -17,24 +17,31 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
-  ll t;
+  int t;
   cin >> t;
 
   while (t--) {
-    ll x, y;
-    cin >> x >> y;
+    int n, a, b;
+    cin >> n >> a >> b;
 
-    ll maior = max(x, y);
+    int ans = 0;
 
-    ll initial = ((maior - 1) * (maior - 1)) + 1;
-
-    if (maior % 2 == 0) {
-      ll diff = abs(x - 1) + abs(y - maior);
-      cout << initial + diff << endl;
-    } else {
-      ll diff = abs(x - maior) + abs(y - 1);
-      cout << initial + diff << endl;
+    while (n > 0) {
+      if (2 * a > b) {
+        if (n >= 2) {
+          n -= 2;
+          ans += b;
+        } else {
+          n -= 1;
+          ans += a;
+        }
+      } else {
+        n -= 1;
+        ans += a;
+      }
     }
+
+    cout << ans << endl;
   }
 
   return 0;

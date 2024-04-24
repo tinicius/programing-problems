@@ -17,19 +17,24 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
-  ll n;
-  cin >> n;
+  FILE* f = fopen("popcorn.in", "r");
 
-  vector<ll> a(n - 1);
-  for (auto& a_i : a) cin >> a_i;
+  ll t;
+  fscanf(f, "%lld", &t);
 
-  sort(a.begin(), a.end());
+  while (t--) {
+    ll n, m;
+    fscanf(f, "%lld %lld", &n, &m);
 
-  for (ll i = 0; i < n; i++) {
-    if (i + 1 != a[i]) {
-      cout << i + 1 << endl;
-      break;
+    vector<ll> fat(21, 0);
+
+    fat[0] = 1;
+
+    for (ll i = 1; i < 21; i++) {
+      fat[i] = fat[i - 1] * i;
     }
+
+    printf("%lld\n", fat[n] / (fat[m] * fat[n - m]));
   }
 
   return 0;

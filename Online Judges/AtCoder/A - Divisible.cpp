@@ -17,20 +17,17 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
-  ll n;
-  cin >> n;
+  ll n, k;
+  cin >> n >> k;
 
-  vector<ll> a(n - 1);
-  for (auto& a_i : a) cin >> a_i;
+  for (int i = 0; i < n; i++) {
+    int a;
+    cin >> a;
 
-  sort(a.begin(), a.end());
-
-  for (ll i = 0; i < n; i++) {
-    if (i + 1 != a[i]) {
-      cout << i + 1 << endl;
-      break;
-    }
+    if (a % k == 0) cout << a / k << " ";
   }
+
+  cout << endl;
 
   return 0;
 }

@@ -17,20 +17,25 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
-  ll n;
-  cin >> n;
+  string w;
+  cin >> w;
 
-  vector<ll> a(n - 1);
-  for (auto& a_i : a) cin >> a_i;
+  int n = w.size();
+  
+set<string> ans;
 
-  sort(a.begin(), a.end());
-
-  for (ll i = 0; i < n; i++) {
-    if (i + 1 != a[i]) {
-      cout << i + 1 << endl;
-      break;
+  for (int s = 0; s < n; s++)
+  {
+    
+    for (int e = 1; e < n + 1; e++)
+    {
+      string sub = w.substr(s, e);
+      ans.insert(sub);
     }
+  
   }
 
+  cout << ans.size() << endl;
+  
   return 0;
 }

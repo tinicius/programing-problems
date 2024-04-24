@@ -20,22 +20,26 @@ int main() {
   string s;
   cin >> s;
 
-  ll aux = 1;
+  int k;
+  cin >> k;
 
-  ll ans = 0;
+  for (int i = 0; i < k; i++) {
+    string aux;
+    vector<int> idx;
 
-  for (ll i = 1; i < s.size(); i++) {
-    if (s[i] == s[i - 1]) {
-      aux++;
-    } else {
-      ans = max(ans, aux);
-      aux = 1;
+    for (int j = i; j < s.size(); j += k) {
+      idx.push_back(j);
+      aux.push_back(s[j]);
+    }
+    
+    sort(aux.begin(), aux.end());
+
+    for (int j = 0; j < idx.size(); j++) {
+      s[idx[j]] = aux[j];
     }
   }
 
-  ans = max(ans, aux);
-
-  cout << ans << endl;
+  cout << s << endl;
 
   return 0;
 }

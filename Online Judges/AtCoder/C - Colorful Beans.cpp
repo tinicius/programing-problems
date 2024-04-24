@@ -5,8 +5,8 @@ using namespace std;
 #define _                       \
   ios_base::sync_with_stdio(0); \
   cin.tie(0);
-
 #define endl '\n'
+
 #define dbg(x) cout << #x << " = " << x << endl
 
 typedef long long ll;
@@ -20,16 +20,25 @@ int main() {
   ll n;
   cin >> n;
 
-  vector<ll> a(n);
-  for (auto& a_i : a) cin >> a_i;
+  vector<int> a(n);
+  vector<int> c(n);
 
-  ll ans = 0;
+  unordered_map<int, int> m;
 
-  for (ll i = 1; i < n; i++) {
-    if (a[i] < a[i - 1]) {
-      ans += a[i - 1] - a[i];
-      a[i] = a[i - 1];
-    }
+  for (int i = 0; i < n; i++) {
+    cin >> a[i] >> c[i];
+
+    if (m[c[i]] == 0)
+      m[c[i]] = a[i];
+    else
+      m[c[i]] = min(m[c[i]], a[i]);
+  }
+
+  int ans = 0;
+
+  for (auto [color, minimum] : m) {
+    // cout << color << " " << minimum << endl;
+    ans = max(ans, minimum);
   }
 
   cout << ans << endl;

@@ -5,8 +5,8 @@ using namespace std;
 #define _                       \
   ios_base::sync_with_stdio(0); \
   cin.tie(0);
-
 #define endl '\n'
+
 #define dbg(x) cout << #x << " = " << x << endl
 
 typedef long long ll;
@@ -17,20 +17,16 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
-  ll n;
-  cin >> n;
+  vector<int> nums(7);
+  for (auto& a_i : nums) cin >> a_i;
 
-  vector<ll> a(n - 1);
-  for (auto& a_i : a) cin >> a_i;
+  sort(nums.begin(), nums.end());
 
-  sort(a.begin(), a.end());
+  int a = nums[0];
+  int b = nums[1];
+  int c = nums[6] - (a + b);
 
-  for (ll i = 0; i < n; i++) {
-    if (i + 1 != a[i]) {
-      cout << i + 1 << endl;
-      break;
-    }
-  }
+  cout << a << " " << b << " " << c << endl;
 
   return 0;
 }

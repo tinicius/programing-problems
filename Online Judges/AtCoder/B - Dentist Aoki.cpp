@@ -17,20 +17,27 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
-  ll n;
-  cin >> n;
+  int n, q;
+  cin >> n >> q;
 
-  vector<ll> a(n - 1);
-  for (auto& a_i : a) cin >> a_i;
+  vector<int> t(q);
+  for (auto& ti : t) cin >> ti;
 
-  sort(a.begin(), a.end());
+  int ans = n;
 
-  for (ll i = 0; i < n; i++) {
-    if (i + 1 != a[i]) {
-      cout << i + 1 << endl;
-      break;
+  vector<bool> dente(1001, 1);
+
+  for (auto ti : t) {
+    if (dente[ti]) {
+      dente[ti] = 0;
+      ans--;
+    } else {
+      dente[ti] = 1;
+      ans++;
     }
   }
+
+  cout << ans << endl;
 
   return 0;
 }
