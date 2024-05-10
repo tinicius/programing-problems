@@ -17,5 +17,27 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
+  int n;
+  cin >> n;
+
+  if (n <= 10) {
+    cout << 0 << endl;
+    return 0;
+  }
+
+  int x = n - 10;
+
+  if (x == 10) {
+    cout << 15 << endl;
+    return 0;
+  }
+
+  if (x > 11) {
+    cout << 0 << endl;
+    return 0;
+  }
+
+  cout << 4 << endl;
+
   return 0;
-};
+}

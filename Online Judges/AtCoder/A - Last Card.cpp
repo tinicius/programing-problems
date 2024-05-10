@@ -17,5 +17,18 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
+  int n, k, a;
+  cin >> n >> k >> a;
+
+  k--;
+
+  while (k--) {
+    a++;
+
+    if (a == n + 1) a = 1;
+  }
+
+  cout << a << endl;
+
   return 0;
-};
+}

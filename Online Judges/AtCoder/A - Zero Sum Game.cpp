@@ -17,5 +17,15 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
+  int n;
+  cin >> n;
+
+  vector<int> a(n);
+  for (auto& ai : a) cin >> ai;
+
+  int sum = accumulate(a.begin(), a.end(), 0);
+
+  cout << -sum << endl;
+
   return 0;
-};
+}

@@ -17,5 +17,25 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
-  return 0;
+  int n;
+  cin >> n;
+
+  int x = 0;
+  int y = 0;
+
+  for (int i = 0; i < n; i++) {
+    int a, b;
+    cin >> a >> b;
+
+    x += a;
+    y += b;
+  }
+
+  if (x > y) {
+    cout << "Takahashi" << endl;
+  } else if (y > x) {
+    cout << "Aoki" << endl;
+  } else {
+    cout << "Draw" << endl;
+  }
 };

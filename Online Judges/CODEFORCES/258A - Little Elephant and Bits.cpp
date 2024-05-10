@@ -17,5 +17,19 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
+  string s;
+  cin >> s;
+
+  for (int i = 0; i < s.size(); i++) {
+    if (s[i] == '0') {
+      s.erase(i, 1);
+      cout << s << endl;
+      return 0;
+    }
+  }
+
+  s.pop_back();
+  cout << s << endl;
+
   return 0;
-};
+}

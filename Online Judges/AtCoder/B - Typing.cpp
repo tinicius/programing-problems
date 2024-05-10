@@ -17,5 +17,20 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
+  string s, t;
+  cin >> s >> t;
+
+  int aux = 0;
+
+  for (int i = 0; i < t.size(); i++) {
+    if (aux == s.size()) break;
+
+    if (t[i] == s[aux]) {
+      cout << i + 1 << " ";
+      aux++;
+    }
+  }
+
+  cout << endl;
   return 0;
-};
+}
