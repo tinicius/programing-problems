@@ -14,4 +14,20 @@ typedef long long ll;
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
-int main() { _; };
+int main() {
+  _;
+
+  string s;
+  cin >> s;
+
+  vector<string> ans;
+
+  sort(s.begin(), s.end());
+
+  do {
+    ans.push_back(s);
+  } while (next_permutation(s.begin(), s.end()));
+
+  cout << ans.size() << endl;
+  for (auto w : ans) cout << w << endl;
+};

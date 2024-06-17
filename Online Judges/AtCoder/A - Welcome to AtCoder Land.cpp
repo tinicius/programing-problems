@@ -14,4 +14,16 @@ typedef long long ll;
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
-int main() { _; };
+int main() {
+  _;
+
+  string s, t;
+  cin >> s >> t;
+
+  if (s == "AtCoder" and t == "Land")
+    cout << "Yes" << endl;
+  else
+    cout << "No" << endl;
+
+  return 0;
+};

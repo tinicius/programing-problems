@@ -14,4 +14,27 @@ typedef long long ll;
 const int INF = 0x3f3f3f3f;
 const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
-int main() { _; };
+int main() {
+  _;
+
+  ll n, a;
+  cin >> n >> a;
+
+  vector<ll> t(n);
+  for (auto& ti : t) cin >> ti;
+
+  ll aux = 0;
+  ll ans = 0;
+
+  for (auto ti : t) {
+    if (aux < ti) {
+      ans += (ti - aux);
+      aux = ti;
+    }
+
+    ans += a;
+    aux += a;
+
+    cout << ans << endl;
+  }
+};
