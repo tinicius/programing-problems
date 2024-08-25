@@ -17,5 +17,21 @@ const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 int main() {
   _;
 
-  return 0;
-}
+  int n;
+  cin >> n;
+
+  vector<int> a(n);
+
+  for (auto& ai : a) cin >> ai;
+
+  bool ans = false;
+
+  for (int i = 0; i < n - 2; i++) {
+    if (a[i] >= 100 && a[i + 1] >= 100 and a[i + 2] >= 100) ans = true;
+  }
+
+  if (ans)
+    cout << "reboot" << endl;
+  else
+    cout << "sleep" << endl;
+};
